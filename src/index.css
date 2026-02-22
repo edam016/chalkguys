@@ -1,0 +1,124 @@
+@import "tailwindcss";
+
+@theme {
+  --color-brand: #4e5666;
+  --color-brand-light: #5e6878;
+  --color-brand-dark: #2d333d;
+  --color-accent: #c5cdd8;
+  --color-accent-hover: #dde3eb;
+  --color-surface: #3a4250;
+  --color-surface-dark: #323a47;
+  --color-surface-light: #4a5468;
+  --color-text-primary: #e8ecf0;
+  --color-text-secondary: #aab5c4;
+  --color-chalk: #f0f3f7;
+  --color-stone: #6b7688;
+  --color-ink: #1a1f27;
+
+  --font-serif: 'Cormorant Garamond', 'Georgia', serif;
+  --font-sans: 'Inter', system-ui, -apple-system, sans-serif;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-sans);
+  color: var(--color-text-primary);
+  background-color: var(--color-brand-dark);
+}
+
+/* Serif heading utility */
+.font-heading {
+  font-family: var(--font-serif);
+}
+
+/* Subtle chalk dust texture overlay */
+.chalk-texture {
+  position: relative;
+}
+.chalk-texture::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='256' height='256' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");
+  background-size: 256px 256px;
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* Enso brush stroke - decorative circular brush mark */
+.enso-stroke {
+  position: absolute;
+  opacity: 0.08;
+  pointer-events: none;
+}
+
+/* Subtle horizontal brush stroke divider */
+.brush-divider {
+  height: 2px;
+  background: linear-gradient(90deg, transparent, var(--color-accent) 30%, var(--color-accent) 70%, transparent);
+  opacity: 0.3;
+}
+
+/* Mountain silhouette clip-path */
+.mountain-silhouette {
+  clip-path: polygon(
+    0% 100%,
+    15% 60%,
+    25% 75%,
+    35% 40%,
+    45% 55%,
+    50% 20%,
+    55% 55%,
+    65% 40%,
+    75% 65%,
+    85% 45%,
+    100% 70%,
+    100% 100%
+  );
+}
+
+/* Prose styling for dark theme */
+.prose-dark {
+  color: var(--color-text-secondary);
+}
+.prose-dark p {
+  margin-bottom: 0.75em;
+}
+.prose-dark strong {
+  color: var(--color-text-primary);
+}
+.prose-dark a {
+  color: var(--color-accent);
+  text-decoration: underline;
+}
+.prose-dark ul, .prose-dark ol {
+  padding-left: 1.5em;
+  margin-bottom: 0.75em;
+}
+.prose-dark li {
+  margin-bottom: 0.25em;
+}
+
+/* Selection color */
+::selection {
+  background-color: rgba(197, 205, 216, 0.25);
+  color: var(--color-chalk);
+}
+
+/* Scrollbar styling */
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  background: var(--color-brand-dark);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--color-stone);
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-text-secondary);
+}
